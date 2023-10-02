@@ -1,9 +1,6 @@
 """ Single Inheritance """
 
 #example-1
-""" Single Inheritance """
-
-
 class Animal:
     def __init__(self,name) -> None:
         self.name = name
