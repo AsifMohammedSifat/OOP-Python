@@ -1,6 +1,26 @@
 """ Single Inheritance """
 
+#example-1
+""" Single Inheritance """
 
+
+class Animal:
+    def __init__(self,name) -> None:
+        self.name = name
+    def eat(self):
+        print(f'{self.name} is eating')
+
+
+class Cat(Animal):
+    def speak(self):
+        print(self.name," said to me hello")
+
+cat =  Cat("Cat")
+
+cat.eat()
+cat.speak()
+
+#Example-02
 class Animal:
     def __init__(self,name) -> None:
         self.name = name
