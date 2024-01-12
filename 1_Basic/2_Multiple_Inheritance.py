@@ -31,3 +31,51 @@ ob_employee.details(1500000, "Python OOP")
 
 ob_employee.person_details()
 ob_employee.company_details()
+
+
+===============================================================================
+#C++
+""" 1. In C++, Function name must be different in diffent class. Otherwise if there has same named function 
+and we want to access them; then Get Ambigious Message. """
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Person {
+public:
+    Person(const string& pname, int age) : pname(pname), age(age) {}
+
+    void detail() {
+        cout << "Name = " << pname << " Age = " << age << endl;
+    }
+
+private:
+    string pname;
+    int age;
+};
+
+class Company {
+public:
+    Company(const string& cname, const string& location) : cname(cname), location(location) {}
+
+    void details() {
+        cout << "Company Name = " << cname << " Location = " << location << endl;
+    }
+
+private:
+    string cname;
+    string location;
+};
+
+class Employee : public Person, public Company {
+public:
+    Employee(const string& pname, int age, const string& cname, const string& location)
+        : Person(pname, age), Company(cname, location) {}
+};
+
+int main() {
+    Employee empObj("Salauddin", 27, "Google", "USA");
+    empObj.detail();
+
+    return 0;
+}
