@@ -38,3 +38,23 @@ class Cat(Animal):
 cat =  Cat("Cat")
 
 cat.eat()
+
+==========================================================================================================
+#C++ Syntax
+// Base class
+class Animal {
+  public:
+    string animal_name = "Cat";
+};
+
+// Derived class
+class Cat: public Animal {
+  public:
+    string sound = "Meow Meow";
+};
+
+int main() {
+  Cat myAnimal;
+  cout << myAnimal.animal_name + " " + myAnimal.sound;
+  return 0;
+}
