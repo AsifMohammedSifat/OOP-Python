@@ -2,13 +2,15 @@
 Runtime Polymorphism or Mehtod Overloading or early binding binding
 '''
 
+# compileTime-> static binding-> early binding->overloading
+# runtime-> dynamic binding -> late binding -> overriding
+
 class Calculator:
-    def add(self, a, b):
-        return a + b
-
-    def add(self, a, b, c):
-        return a + b + c
-
-calc = Calculator()
-result1 = calc.add(1, 2)          # Calls the first add method
-result2 = calc.add(1, 2, 3)       # Calls the second add method
+    def add(self,a,b,c=-1):
+        if c==-1:
+            return a+b
+        return a+b+c
+    
+c = Calculator()
+print(c.add(2,3))
+print(c.add(2,3,5))
