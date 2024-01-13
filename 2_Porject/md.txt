@@ -1,0 +1,171 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class StarCinema:
+    __hall_list = []
+
+    def __init__(self) -> None:
+        pass
+
+    def entry_hall(self, hall):
+        self.__hall_list.append(hall)
+
+    @property
+    def hall_list(self):
+        return self.__hall_list
+
+
+class Hall:
+    def __init__(self, rows, cols, hall_no) -> None:
+        self.__seats = {}
+        self.__hall_no = hall_no
+        self.__rows = rows
+        self.__cols = cols
+        self.__show_list = []
+
+    def entry_show(self, id, movie_name, time):
+        show = (id, movie_name, time)
+        self.__show_list.append(show)
+        self.__seats[id] = [[0] * self.__cols for _ in range(self.__rows)]
+
+    def book_seats(self, id, seat_list):
+        show = next((show for show in self.__show_list if show[0] == id), None)
+        if show:
+            show_id = show[0]
+            for seat in seat_list:
+                if self.is_valid_seat(seat):
+                    if self.is_seat_available(show_id, seat):
+                        self.__seats[show_id][seat[0]][seat[1]] = 1
+                        print(f'Success! Seat {seat} booked for show {id}')
+                    else:
+                        print(f'Sorry! Seat {seat} is already booked for show {id}. Please choose another seat.')
+                else:
+                    print(f'Sorry! Seat {seat} is out of bounds.')
+        else:
+            print(f'Sorry! Show ID: {id} is not valid.')
+
+    def is_valid_seat(self, seat):
+        return 0 <= seat[0] < self.__rows and 0 <= seat[1] < self.__cols
+
+    def is_seat_available(self, show_id, seat):
+        return self.__seats[show_id][seat[0]][seat[1]] == 0
+
+    def view_show_list(self):
+        print("-----------------------------")
+        for show in self.__show_list:
+            print(f'MOVIE NAME: {show[1]}({show[0]}) SHOW ID: {show[0]} TIME: {show[2]}')
+        print("-----------------------------")
+
+    def view_available_seats(self, id):
+        show = next((s for s in self.__show_list if s[0] == id), None)
+        print("\n-----------------------------")
+        if show:
+            show_id = show[0]
+
+            print("     " + " ".join(str(i + 1) for i in range(self.__cols)))
+            print("   " + "-" * (self.__cols * 2 + 1))
+
+            for i, row in enumerate(self.__seats[show_id]):
+                print(f"{i + 1:2} |", end=" ")
+
+                for seat in row:
+                    if seat == 0:
+                        print("◯", end=" ")  
+                    else:
+                        print("☒", end=" ")  
+
+                print()
+            print("-----------------------------")
+        else:
+            print(f'Sorry! Show ID: {id} is not valid. Please provide a valid show ID.')
+            print("-----------------------------")
+
+def main():
+    star_cinema = StarCinema()
+
+    hall = Hall(10, 10, 101)
+    star_cinema.entry_hall(hall)
+
+    hall.entry_show(252, "Avengers: Secret War", "20/01/2024 09:00 PM")
+    hall.entry_show(352, "Salar Part-1", "18/01/2024 6:00 PM")
+    hall.entry_show(452, "Mission Impossible", "25/01/2024 10:00 PM")
+    hall.entry_show(552, "Guardians of the Galaxy", "23/01/2024 08:00 PM")
+
+    while True:
+        print("\nWelcome to Star Cinema!")
+        print("1. View all shows today")
+        print("2. View available seats")
+        print("3. Book ticket")
+        print("4. Exit")
+
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == '1':
+            for hall in star_cinema.hall_list:
+                hall.view_show_list()
+        elif choice == '2':
+            show_id = int(input("Enter show ID: "))
+            hall = next((h for h in star_cinema.hall_list if show_id in [show[0] for show in h._Hall__show_list]), None)
+            if hall:
+                hall.view_available_seats(show_id)
+            else:
+                print(f'Sorry! Show ID: {show_id} is not valid.')
+        elif choice == '3':
+            show_id = int(input("Enter show ID: "))
+            hall = next((h for h in star_cinema.hall_list if show_id in [show[0] for show in h._Hall__show_list]), None)
+            if hall:
+                number_of_tickets = int(input("Enter the number of tickets: "))
+                tickets = [(int(input(f'Enter seat {i + 1} row: ')), int(input(f'Enter seat {i + 1} column: ')))
+                           for i in range(number_of_tickets)]
+
+                hall.book_seats(show_id, tickets)
+            else:
+                print(f'Sorry! Show ID: {show_id} is not valid.')
+        elif choice == '4':
+            print("Thank you for using Star Cinema! Goodbye.")
+            break
+        else:
+            print("Please enter a valid option (1-4).")
+
+
+if __name__ == "__main__":
+    main()
