@@ -39,22 +39,49 @@ cat =  Cat("Cat")
 
 cat.eat()
 
-==========================================================================================================
-#C++ Syntax
-// Base class
-class Animal {
-  public:
-    string animal_name = "Cat";
+==============
+C++
+==============
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Animal
+{
+protected:
+    string name;
+
+public:
+    Animal(string name)
+    {
+        this->name = name;
+    }
+
+    void eat()
+    {
+        cout << name << " is eating" << endl;
+    }
 };
 
-// Derived class
-class Cat: public Animal {
-  public:
-    string sound = "Meow Meow";
+class Cat : public Animal
+{
+public:
+    // way-1
+    Cat(string name) : Animal(name)
+    {
+        //No need to initialize 'name' again; it's already done in Animal's constructor
+    }
+
+    // way-2
+    // Cat(string name)
+    // {
+    //     this->name = name; // Assign name in the body of the Cat constructor
+    // }
 };
 
-int main() {
-  Cat myAnimal;
-  cout << myAnimal.animal_name + " " + myAnimal.sound;
-  return 0;
+int main()
+{
+    Cat cat("Cat");
+    cat.eat();
+    return 0;
 }
