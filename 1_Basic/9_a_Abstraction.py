@@ -114,5 +114,56 @@ rectangle = Rectangle(4, 6)
 print("Circle Area:", circle.area())        # Output: 78.5
 print("Rectangle Area:", rectangle.area())    # Output: 24
 
+======
+C++:
+======
+#include <iostream>
+using namespace std;
+
+// Abstract class
+class Shape {
+public:
+    // Pure virtual function (abstract method)
+    virtual void draw() = 0;
+
+    // Concrete method
+    void displayInfo() {
+        cout << "This is a shape." << endl;
+    }
+};
+
+// Concrete subclass Circle
+class Circle : public Shape {
+public:
+    // Implementation of draw method
+    void draw() override {
+        cout << "Drawing a circle." << endl;
+    }
+};
+
+// Concrete subclass Rectangle
+class Rectangle : public Shape {
+public:
+    // Implementation of draw method
+    void draw() override {
+        cout << "Drawing a rectangle." << endl;
+    }
+};
+
+int main() {
+    // Create objects of concrete subclasses
+    Circle circle;
+    Rectangle rectangle;
+
+    // Call draw method (abstraction)
+    circle.draw();      // Output: Drawing a circle.
+    rectangle.draw();   // Output: Drawing a rectangle.
+
+    // Call concrete method
+    circle.displayInfo();      // Output: This is a shape.
+    rectangle.displayInfo();   // Output: This is a shape.
+
+    return 0;
+}
 
 
