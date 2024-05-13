@@ -1,0 +1,58 @@
+======
+c++ :
+======
+Methods are functions that belongs to the class.
+
+There are two ways to define functions that belongs to a class:
+
+    Inside class definition
+    Outside class definition
+
+#include <iostream>
+using namespace std;
+
+class Car {
+  public:
+    //Inside Class
+    void display(){
+      cout<<"Hello World\n";
+    }
+    
+    int speed(int maxSpeed);
+};
+
+//Outside Class
+int Car::speed(int maxSpeed) {
+  return maxSpeed;
+}
+
+int main() {
+  Car myObj; // Create an object of Car
+  cout << myObj.speed(200); // Call the method with an argument
+  return 0;
+}
+
+
+=======
+Python:
+=======
+
+In Python, you don't define methods outside of the class definition as you do in C++. 
+However, you can achieve similar functionality by defining a function outside of the 
+class and then assigning it as an attribute of the class. Here's how you can do it:
+
+def display(self):
+    print("Hello World!")
+
+class MyClass:
+    pass
+
+# Assigning the function as a method of the class
+MyClass.display = display
+
+# Main code
+if __name__ == "__main__":
+    my_obj = MyClass()   # Create an object of MyClass
+    my_obj.display()   # Call the method
+    print(MyClass.__dict__)
+
