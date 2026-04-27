@@ -21,7 +21,7 @@ Inheritance means one class is a specialized version of another class.
 
 👉 Example: Dog IS-A Animal
 
-## Bangla Explanation
+## Explanation
 এখানে একটি class আরেকটি class-এর বৈশিষ্ট্য (property) এবং আচরণ (method) পায়। এটাকে **blood relation** হিসেবে ধরা যায়।
 
 ## Python Example
@@ -243,7 +243,7 @@ One class strongly owns another class. If parent is destroyed, child also destro
 
 👉 Example: House HAS Rooms
 
-## Bangla Explanation
+## Explanation
 এখানে child object parent ছাড়া exist করতে পারে না। এটা খুব strong relation, অর্থাৎ **blood relation-like strong dependency**.
 
 ## Python Example
@@ -371,7 +371,7 @@ car.drive()
 
 # Summary Table
 
-| Concept | Type | Relation | Coupling | Bangla Meaning |
+| Concept | Type | Relation | Coupling |  Meaning |
 |----------|------|----------|----------|----------------|
 | Inheritance | IS-A | Strong | Tightly coupled | Blood relation |
 | Association | Uses/Knows | Weak | Loosely coupled | No blood relation |
