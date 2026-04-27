@@ -102,6 +102,19 @@ Teacher এবং Student আলাদা entity:
 
 👉 তারা শুধু **learning process-এর মাধ্যমে connect থাকে**
 
+## Types of Association
+
+| Type           | Meaning              |
+| -------------- | -------------------- |
+| Unidirectional | One-way relationship |
+| Bidirectional  | Two-way relationship |
+| One-to-One     | 1 object ↔ 1 object  |
+| One-to-Many    | 1 object → many      |
+| Many-to-Many   | many ↔ many          |
+| Aggregation    | Weak association     |
+| Composition    | Strong association   |
+
+
 ---
 
 ## 🐍 Python Example (Better Version)
