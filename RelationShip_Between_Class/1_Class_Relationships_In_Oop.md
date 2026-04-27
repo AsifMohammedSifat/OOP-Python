@@ -378,4 +378,14 @@ car.drive()
 | Aggregation | HAS-A (weak) | Weak | Loosely coupled | No blood relation |
 | Composition | HAS-A (strong) | Strong | Tightly coupled | Strong dependency |
 
+# Composition VS Aggregation
+
+| Feature        | Composition                 | Aggregation                  |
+| -------------- | --------------------------- | ---------------------------- |
+| Ownership      | Strong (Parent owns Child)  | Weak (Parent uses Child)     |
+| Lifecycle      | Child dies with Parent      | Child survives Parent        |
+| Example        | House and Room              | Library and Book             |
+| Implementation | Child created inside Parent | Child created outside Parent |
+
+
 ---
