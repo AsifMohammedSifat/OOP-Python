@@ -3,6 +3,16 @@
 <img width="935" height="629" alt="image" src="https://github.com/user-attachments/assets/b95e74de-e13a-4c6e-9c63-4190ae68e650" />
 <img width="882" height="603" alt="image" src="https://github.com/user-attachments/assets/3c3d556b-7c77-43a4-befb-b43f64cdea4c" />
 
+## More
+| Arrow    | মানে                              |
+| -------- | --------------------------------- |
+| `—`      | simple association                |
+| `→`      | one-direction access (navigation) |
+| `◆`      | composition                       |
+| `△`      | inheritance                       |
+| `- - ->` | dependency (temporary use)        |
+
+
 এই ডায়াগ্রামটি একটি **UML Class Diagram Example**, যেখানে একটি ছোট ই-কমার্স/অর্ডার সিস্টেম দেখানো হয়েছে। 
 
 ---
