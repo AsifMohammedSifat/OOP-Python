@@ -1,6 +1,7 @@
 # UML (Unified Modeling Language) Diagram:
 
-<img width="865" height="596" alt="image" src="https://github.com/user-attachments/assets/482c4087-27a0-47b8-b196-0442da7f9e54" />
+<img width="953" height="629" alt="image" src="https://github.com/user-attachments/assets/b3b9c6ac-3f11-4ec3-bbc2-9bbe623f9162" />
+
 
 
 Code:
